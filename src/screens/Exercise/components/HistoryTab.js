@@ -133,4 +133,23 @@ const styles = StyleSheet.create({
     list:{
         width: width,
         height: height * 0.58,
-        // bac
+        // backgroundColor: 'green',
+    },
+    listContent:{
+        alignItems: 'center',
+        paddingVertical: height * 0.01,
+    },
+    emptyList: {
+        width: width,
+        height: height * 0.58,
+        justifyContent: 'center',
+        alignItems: 'center',
+        // backgroundColor: 'red',
+    },
+    emptyText:{
+        fontSize: 14,
+        color: '#72767D'
+    }
+})
+
+export default HistoryTab;

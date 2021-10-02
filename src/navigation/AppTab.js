@@ -216,4 +216,7 @@ const styles = StyleSheet.create({
     tabIconText:{
         fontSize: 12,
         padding: 5,
-    },
+    },
+});
+
+export default AppTab;

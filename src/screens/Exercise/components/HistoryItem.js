@@ -191,4 +191,5 @@ const styles = StyleSheet.create({
         color: '#BABBBF',
     },
 })
-
+
+export default HistoryItem;
