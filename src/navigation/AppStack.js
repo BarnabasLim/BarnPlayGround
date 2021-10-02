@@ -32,7 +32,7 @@ const Stack = createStackNavigator();
 const AppStack = () => {
     return(
         <Stack.Navigator
-            initialRouteName="LoadingScreen"
+            initialRouteName="AppTab"
         >
             {/* <Stack.Screen
                 key="LoadingScreen"
