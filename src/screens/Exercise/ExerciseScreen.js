@@ -7,7 +7,7 @@ import RunTab from './components/RunTab';
 import HistoryTab from './components/HistoryTab';
 
 // import * as Spotify from '../Music/components/spotify_player_controls';
-// import * as LocationLib from '../../api/LocationPermissions';
+import * as LocationLib from '../../api/LocationPermissions';
 
 const {width, height} = Dimensions.get("window")
 
@@ -21,27 +21,27 @@ const ExerciseScreen = () => {
 
     const [permissionsStatus, setPermissionsStatus] = useState(3);
     
-    /**
-     * This is a method to check for device's foreground location permission.
-     */
+    // /**
+    //  * This is a method to check for device's foreground location permission.
+    //  */
     const forePermissionHandler = () => {
         LocationLib.forePermissionCheck(() => {
             setPermissionsStatus(1);
         })
     } 
 
-    /**
-     * This is a method to check for device's background location permission.
-     */
+    // /**
+    //  * This is a method to check for device's background location permission.
+    //  */
     const backPermissionHandler = () => {
         LocationLib.backPermissionCheck(() => {
             setPermissionsStatus(2);
         })
     } 
 
-    /**
-     * This is a render effect based on "permissionsStatus" state.
-     */
+    // /**
+    //  * This is a render effect based on "permissionsStatus" state.
+    //  */
     useEffect(() => {
         if (permissionsStatus === 0) {
             console.log ('P_Status : 0 - FOREGROUND:not granted / BACKGROUND:not granted')
@@ -154,7 +154,9 @@ const ExerciseScreen = () => {
                 disableIntervalMomentum={true}
                 onScroll={Animated.event( [{nativeEvent: {contentOffset: {x: scrollX}}}], {useNativeDriver: false} )}
             >
-                <RunTab/>
+                <RunTab 
+                    permissionsStatus={permissionsStatus}
+                    />
                 <HistoryTab/>
             </Animated.ScrollView>
 
