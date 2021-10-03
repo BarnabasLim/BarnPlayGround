@@ -102,7 +102,7 @@ const AppTab = () => {
                 }}
             /> */}
             <Tab.Screen 
-                name="ExerciseScreen" 
+                name="ExerciseScreen2" 
                 component={ExerciseScreen}
                 options={{
                     tabBarIcon: ({focused}) => (
@@ -120,7 +120,8 @@ const AppTab = () => {
                                     color: focused ? '#7289DA' : '#BABBBF',
                                 }}>EXERCISE</Text>
                         </View>
-                    )
+                    ),
+                    headerShown: false,
                 }}
             />
             {/* <Tab.Screen 
