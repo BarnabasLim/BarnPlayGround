@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import moment from 'moment';
-import * as Firestore from '../../../api/firestore';
+//import * as Firestore from '../../../api/firestore';
 
 /**
  * This is a History Item component.

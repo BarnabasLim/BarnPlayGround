@@ -15,22 +15,22 @@ const {width, height} = Dimensions.get("window")
  */
 const HistoryTab = () => {
     const [history, setHistory] = useState([])
-    const [totalDistance, setTotalDistance] = useState(0)
-    const [totalRuns, setTotalRuns] = useState(0)
-    const DATA = [
-        {
-          id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-          title: 'First Item',
-        },
-        {
-          id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-          title: 'Second Item',
-        },
-        {
-          id: '58694a0f-3da1-471f-bd96-145571e29d72',
-          title: 'Third Item',
-        },
-      ];
+    const [totalDistance, setTotalDistance] = useState(35000)
+    const [totalRuns, setTotalRuns] = useState(6)
+    // const DATA = [
+    //     {
+    //         distance:78.2
+    //         positions: {1.4423023},
+    //         steps: 198,
+    //         duration:,
+    //         time:,
+    //         day:"Saturday",
+    //         date:"10/02/2021",
+    //         mode:,
+    //         id:
+    //     },
+    //   ];
+
     //Barn
     /**
      * This is a render effect triggered on component mount.
@@ -50,6 +50,21 @@ const HistoryTab = () => {
     //     )
     // },[])
 
+    //Barn
+    // useEffect(async() => {
+    //         Firestore.db_historyView(
+    //             (historyList) => { setHistory(historyList.reverse())},
+    //             (error) => {console.log('history view fail')}
+    //         )
+            
+    //         Firestore.db_getUserDataSnapshot(
+    //             (userData) => {
+    //                 setTotalDistance(userData.totalDistance)
+    //                 setTotalRuns(userData.runCount)
+    //             },
+    //             (error) => {console.log(error)},
+    //         )
+    //     },[])
     return (
         <View style={styles.componentContainer}>
 
