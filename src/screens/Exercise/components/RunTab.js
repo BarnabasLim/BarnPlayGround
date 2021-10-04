@@ -28,6 +28,8 @@ const RunTab = (props) => {
     //GPS Perms
     const [permissionsStatus, setPermissionsStatus] = useState(props.permissionsStatus);
 
+    const[gpsMode,setGpsMode]=useState('track');//track, explore
+
     // // /**
     // //  * Begining UseEffect
     // //  */
@@ -160,11 +162,40 @@ const RunTab = (props) => {
                     runStatus={runStatus}
                     mapPositions={mapPositions} 
                     currCoord={currCoord}
+                    gpsMode={gpsMode}
+                    setGpsMode={(gpsMode)=>{setGpsMode(gpsMode)}}
                 />
                 <RunModePicker/>
                 <View style={styles.startButton}>
                     <TouchableOpacity>
                         <Text style={styles.startButtonColor}>Start</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.mapMode}>
+                    <TouchableOpacity onPress={()=>{
+                        if (gpsMode=='track'){
+                            setGpsMode('explore');
+                        }   
+                        else{
+                            setGpsMode('track');
+                        }
+                    }}>
+                        <View style={styles.mapModeContainer}>
+                            {(gpsMode=='track')?
+                                <Image 
+                                    source={require('../../../assets/icons/ExercisePlay.png')}
+                                    resizeMode= 'contain'
+                                    style={styles.mapModetIcon}
+                                />
+                                :
+                                <Image 
+                                    source={require('../../../assets/icons/RunTabSpaceType.png')}
+                                    resizeMode= 'contain'
+                                    style={styles.mapModetIcon}
+                                />
+                            }
+                            <Text>{gpsMode}</Text>
+                        </View>
                     </TouchableOpacity>
                 </View>
                 
@@ -196,14 +227,7 @@ const styles = StyleSheet.create({
         height: height * 0.73,
         backgroundColor: '#282B30',
         backgroundColor: 'yellow',
-        elevation:5,
-        shadowOffset: {
-            width: 20,
-            height: -20
-          },
-        shadowOpacity:0.9,
-        shadowRadius:10,
-        shadowColor:'black'
+        
         
     }, 
     startButton:{
@@ -232,10 +256,50 @@ const styles = StyleSheet.create({
         paddingTop:height * 0.1*0.2,
         //alignSelf:'center'
         backgroundColor: '#7289D9',
-    } 
-    
-    
-    
+    } ,
+    mapMode:{
+        
+        //height: height * 0.1,
+        height: 25,
+        width: 80,
+        //aspectRatio: 1,
+        borderRadius: 25,
+        position: 'absolute',
+        //right: ((width * 0.95) - (width * 0.65) - (height * 0.1)) * 0.5,
+        //top: height * (0.4-0.1), 
+        right: (width * 0.025),
+        top: height * (0.4)-25-10, 
+        justifyContent: 'center',
+        alignItems: 'center',
+        //backgroundColor: '#BABBBF',
+        //backgroundColor: 'rgba(186,187,191,0.5)',//grey
+        backgroundColor:'rgba(114,137,217,0.5)',//blue
+        },
+    mapModeContainer:{
+        
+        //height: height * 0.1,
+        height: 25,
+        width: 80,
+        //aspectRatio: 1,
+        borderRadius: 25,
+        //top: height * (0.4-0.1), 
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        flexDirection:'row',
+        //backgroundColor: '#BABBBF',
+        //backgroundColor: 'rgba(186,187,191,0.5)',//grey
+        backgroundColor:'rgba(114,137,217,0.5)',//blue
+        },
+    mapModetIcon:{
+            //height: height * 0.05,
+            height: 15,
+            width: 15,
+            marginLeft:10,
+            //aspectRatio: 1,
+            transform: [{translateX: width * -0.003}],
+            tintColor: 'rgba(79,83,92,0.5)',
+            //backgroundColor:'pink'
+        },
 })
 
 export default RunTab;
